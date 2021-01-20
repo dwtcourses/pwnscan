@@ -1,12 +1,5 @@
-## <p align="center"><br>
- ______        ___   _ ____   ____    _    _   _<br>
-|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |<br>
-| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |<br>
-|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |<br>
-|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|<br>
+## <p align="center">pwnscan
 </p>
-
-# pwnscan
 
 <p align="center">A modular framework designed to automate security tests.</p>
 
