@@ -7,6 +7,7 @@ import (
 	"os/exec"
 
 	"github.com/fatih/color"
+	"github.com/likexian/whois-go"
 )
 
 func main() {
@@ -39,9 +40,9 @@ func main() {
 		color.Green("Select an option : ")
 		fmt.Scanf("%d", &ch)
 		if ch == 1 {
-			cmnd := exec.Command("whois.go", "arg")
-			cmnd.Start()
-			whois()
+			//cmnd := exec.Command("whois.go", "arg")
+			//cmnd.Start()
+			whoislookup(*url)
 		} else if ch == 2 {
 			cmnd := exec.Command("whois.go", "arg")
 			cmnd.Start()
@@ -51,4 +52,13 @@ func main() {
 		color.Red("Error : Missing --url")
 		color.Green("Usage : ")
 	}
+
+}
+
+func whoislookup(name string) {
+	result, err := whois.Whois(name)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(result)
 }
