@@ -13,6 +13,8 @@
 
 ## Requirements: 
 
+`go get github.com/nolimitcarter/pwnscan`
+
 `go get github.com/fatih/color`
 
 `go get github.com/likexian/whois-go`
