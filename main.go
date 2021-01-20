@@ -2,8 +2,11 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"log"
+	"os/exec"
 
-	"github.com/faith/color"
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -32,11 +35,20 @@ func main() {
 		color.Red("[09] ETC")
 		color.Red("[10] ETC")
 
-	var ch int 
-	color.Green("Select an option : ")
-	fmt.Scanf("%d".&ch)
-	if (ch == 1){
-		whois(*url)
-	}
+		var ch int
+		color.Green("Select an option : ")
+		fmt.Scanf("%d", &ch)
+		if ch == 1 {
+			cmnd := exec.Command("whois.go", "arg")
+			cmnd.Start()
+			log.Println("log")
+		} else if ch == 2 {
+			cmnd := exec.Command("whois.go", "arg")
+			cmnd.Start()
+			log.Println("log")
+		}
+	} else {
+		color.Red("Error : ")
+		color.Green("Usage : ")
 	}
 }
