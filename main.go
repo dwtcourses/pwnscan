@@ -25,9 +25,9 @@ func main() {
 | |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
 |  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
 |_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
-				
+						
+			    version 1.1
 	`
-
 	color.Cyan("%s", banner)
 	color.Red("	          made with <3 by @nolimitcarter")
 	color.White("                   ")
@@ -40,7 +40,7 @@ func main() {
 		color.White("                   ")
 		color.White("                   ")
 
-		color.Green("[-] PWNScan Options : ")
+		color.Green("[::] PWNScan Options [::] ")
 		color.White("                   ")
 		color.Yellow("[01] Simple Nmap Scan")
 		color.Yellow("[02] Advanced Nmap Scan")
