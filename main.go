@@ -1,10 +1,11 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
-	"log"
-	"os/exec"
+	"io/ioutil"
+	"net/http"
 
 	"github.com/fatih/color"
 	"github.com/likexian/whois-go"
@@ -42,17 +43,60 @@ func main() {
 		if ch == 1 {
 			//cmnd := exec.Command("whois.go", "arg")
 			//cmnd.Start()
-			whoislookup(*url)
+			simplenmap(*url)
 		} else if ch == 2 {
-			cmnd := exec.Command("whois.go", "arg")
-			cmnd.Start()
-			log.Println("log")
+			advancednmap(*url)
+		} else if ch == 3 {
+			whoislookup(*url)
 		}
 	} else {
-		color.Red("Error : Missing --url")
-		color.Green("Usage : ")
+		foo()
+		if err := foo(); err != nil {
+		}
+
+		//color.Red("Error : Missing --url")
+		//color.Green("Usage : ")
 	}
 
+}
+
+//func simplenmap() {
+//	var wg sync.WaitGroup
+//	for i := 1; i <= 1024; i++ {
+//		wg.Add(1)
+//		go func(j int) {
+//			defer wg.Done()
+//			address :=
+//		}
+//	}
+//}
+
+func simplenmap(name string) {
+	url := "https://api.hackertarget.com/nmap/?q=" + name
+	resp, err := http.Get(url)
+	if err != nil {
+		foo()
+	}
+	defer resp.Body.Close()
+	html, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s\n", html)
+}
+
+func advancednmap(name string) {
+	url := "https://api.hackertarget.com/nmap/?q=" + name
+	resp, err := http.Get(url)
+	if err != nil {
+		foo()
+	}
+	defer resp.Body.Close()
+	html, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s\n", html)
 }
 
 func whoislookup(name string) {
@@ -61,4 +105,8 @@ func whoislookup(name string) {
 		fmt.Println(err)
 	}
 	fmt.Println(result)
+}
+
+func foo() error {
+	return errors.New("Some error occured")
 }
