@@ -144,11 +144,11 @@ func about() {
 | |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
 |  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
 |_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
-				
+						
+			    version 1.1
 	`
-
 	color.Cyan("%s", banner)
-	color.Red("			 made with <3 by @nolimitcarter")
+	color.Red("		  made with <3 by @nolimitcarter")
 	color.White("                   ")
 	color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
 	color.White("                   ")
@@ -179,9 +179,9 @@ func exit() {
 | |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
 |  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
 |_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
-				
+						
+			    version 1.1
 	`
-
 	color.Cyan("%s", banner)
 	color.Red("	          made with <3 by @nolimitcarter")
 	color.White("                 ")
