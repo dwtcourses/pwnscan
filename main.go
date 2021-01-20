@@ -20,21 +20,27 @@ func main() {
 	c.Run()
 	// start
 	var banner = `
-	 ______        ___   _ ____   ____    _    _   _
-	|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
-	| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
-	|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
-	|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
+ ______        ___   _ ____   ____    _    _   _
+|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
+| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
+|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
+|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
 				
 	`
 
 	color.Cyan("%s", banner)
-	color.Red("			 made with <3 by @nolimitcarter")
+	color.Red("	          made with <3 by @nolimitcarter")
 	color.White("                   ")
 	url := flag.String("url", "u", "-url")
 	flag.Parse()
 	if *url != "u" {
-		color.Green("[::] PWNScan Options [::] ")
+		color.Green("[-] Entered URL: ")
+		c := color.New(color.FgCyan).Add(color.Underline)
+		c.Printf(*url)
+		color.White("                   ")
+		color.White("                   ")
+
+		color.Green("[-] PWNScan Options : ")
 		color.White("                   ")
 		color.Yellow("[01] Simple Nmap Scan")
 		color.Yellow("[02] Advanced Nmap Scan")
@@ -131,11 +137,11 @@ func about() {
 	c.Stdout = os.Stdout
 	c.Run()
 	var banner = `
-	 ______        ___   _ ____   ____    _    _   _
-	|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
-	| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
-	|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
-	|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
+ ______        ___   _ ____   ____    _    _   _
+|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
+| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
+|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
+|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
 				
 	`
 
@@ -155,6 +161,7 @@ func about() {
 	color.Green("[-] Select an option : ")
 	fmt.Scanf("%d", &ch)
 	if ch == 00 {
+		color.Yellow("Exiting... Thanks for using this tool!")
 		exit()
 	} else {
 		foo()
@@ -162,8 +169,9 @@ func about() {
 }
 
 func exit() {
+	color.Red("Exiting... Thanks for using this tool!")
 	defer fmt.Println("!")
-	os.Exit(3)
+	os.Exit(0)
 }
 
 func foo() error {
