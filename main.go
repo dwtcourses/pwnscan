@@ -6,39 +6,54 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"os/exec"
 
 	"github.com/fatih/color"
 	"github.com/likexian/whois-go"
 )
 
 func main() {
+	// clears the terminal
+	c := exec.Command("clear")
+	c.Stdout = os.Stdout
+	c.Run()
+	// start
 	var banner = `
-				--------\
-				|
-				|
-				|
-				|
-				|
+	 ______        ___   _ ____   ____    _    _   _
+	|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
+	| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
+	|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
+	|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
+				
 	`
+
 	color.Cyan("%s", banner)
-	color.Red("          message")
+	color.Red("			 made with <3 by @nolimitcarter")
+	color.White("                   ")
 	url := flag.String("url", "u", "-url")
 	flag.Parse()
 	if *url != "u" {
-		color.Green("PWNScan Options :: \n")
-		color.Red("[01] Simple Nmap Scan")
-		color.Red("[02] Advanced Nmap Scan")
-		color.Red("[03] Who-is Lookup")
-		color.Red("[04] DNS Lookup")
-		color.Red("[05] Reverse DNS Lookup")
-		color.Red("[06] ETC")
-		color.Red("[07] ETC")
-		color.Red("[08] ETC")
-		color.Red("[09] ETC")
-		color.Red("[10] ETC")
+		color.Green("[::] PWNScan Options [::] ")
+		color.White("                   ")
+		color.Yellow("[01] Simple Nmap Scan")
+		color.Yellow("[02] Advanced Nmap Scan")
+		color.Yellow("[03] Who-is Lookup")
+		color.Yellow("[04] DNS Lookup")
+		color.Yellow("[05] Reverse DNS Lookup")
+		color.Yellow("[06] ETC")
+		color.Yellow("[07] ETC")
+		color.Yellow("[08] ETC")
+		color.Yellow("[09] ETC")
+		color.Yellow("[10] ETC")
+		color.White("                   ")
+		color.Yellow("[99] About")
+		//color.White("                   ")
+		color.Yellow("[00] Exit")
+		color.White("                   ")
 
 		var ch int
-		color.Green("Select an option : ")
+		color.Green("[-] Select an option : ")
 		fmt.Scanf("%d", &ch)
 		if ch == 1 {
 			//cmnd := exec.Command("whois.go", "arg")
@@ -48,6 +63,10 @@ func main() {
 			advancednmap(*url)
 		} else if ch == 3 {
 			whoislookup(*url)
+		} else if ch == 99 {
+			about()
+		} else if ch == 00 {
+			exit()
 		}
 	} else {
 		foo()
@@ -105,6 +124,13 @@ func whoislookup(name string) {
 		fmt.Println(err)
 	}
 	fmt.Println(result)
+}
+
+func about() {
+
+func exit() {
+	defer fmt.Println("!")
+	os.Exit(3)
 }
 
 func foo() error {
