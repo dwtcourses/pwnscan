@@ -14,7 +14,7 @@ func main() {
 		// whois()
 		// return nil
 		//	cmd := exec.Command("whois.go")
-		//	return nil
+		return nil
 	})
 	menu.Option("Look up", nil, true, nil)
 	menu.Option("ETC", nil, true, nil)
