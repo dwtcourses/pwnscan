@@ -69,12 +69,14 @@ func main() {
 			advancednmap(*url)
 		} else if ch == 3 {
 			whoislookup(*url)
-		} else if ch == 99 {
-			exit()
 		} else if ch == 00 {
 			about()
+		} else if ch == 99 {
+			exit()
 		}
 	} else {
+		color.Red("Error : Missing Parameter '--url'")
+		color.Green("Usage : go run main.go --url 'google.com'")
 		foo()
 		if err := foo(); err != nil {
 		}
@@ -161,7 +163,6 @@ func about() {
 	color.Green("[-] Select an option : ")
 	fmt.Scanf("%d", &ch)
 	if ch == 00 {
-		color.Yellow("Exiting... Thanks for using this tool!")
 		exit()
 	} else {
 		foo()
@@ -169,7 +170,26 @@ func about() {
 }
 
 func exit() {
+	c := exec.Command("clear")
+	c.Stdout = os.Stdout
+	c.Run()
+	var banner = `
+ ______        ___   _ ____   ____    _    _   _
+|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
+| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
+|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
+|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
+				
+	`
+
+	color.Cyan("%s", banner)
+	color.Red("	          made with <3 by @nolimitcarter")
+	color.White("                 ")
+	color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
+	color.White("                   ")
 	color.Red("Exiting... Thanks for using this tool!")
+	color.White("                   ")
+
 	defer fmt.Println("!")
 	os.Exit(0)
 }
