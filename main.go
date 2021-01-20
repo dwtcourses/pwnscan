@@ -47,9 +47,9 @@ func main() {
 		color.Yellow("[09] ETC")
 		color.Yellow("[10] ETC")
 		color.White("                   ")
-		color.Yellow("[99] About")
+		color.Yellow("[00] About")
 		//color.White("                   ")
-		color.Yellow("[00] Exit")
+		color.Yellow("[99] Exit")
 		color.White("                   ")
 
 		var ch int
@@ -64,9 +64,9 @@ func main() {
 		} else if ch == 3 {
 			whoislookup(*url)
 		} else if ch == 99 {
-			about()
-		} else if ch == 00 {
 			exit()
+		} else if ch == 00 {
+			about()
 		}
 	} else {
 		foo()
@@ -127,6 +127,39 @@ func whoislookup(name string) {
 }
 
 func about() {
+	c := exec.Command("clear")
+	c.Stdout = os.Stdout
+	c.Run()
+	var banner = `
+	 ______        ___   _ ____   ____    _    _   _
+	|  _ \ \      / | \ | / ___| / ___|  / \  | \ | |
+	| |_) \ \ /\ / /|  \| \___ \| |     / _ \ |  \| |
+	|  __/ \ V  V / | |\  |___) | |___ / ___ \| |\  |
+	|_|     \_/\_/  |_| \_|____/ \____/_/   \_|_| \_|
+				
+	`
+
+	color.Cyan("%s", banner)
+	color.Red("			 made with <3 by @nolimitcarter")
+	color.White("                   ")
+	color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
+	color.White("                   ")
+	color.Cyan("Author  :  @nolimitcarter")
+	color.Cyan("Github  :  https://github.com/nolimitcarter")
+	color.Cyan("Find me :  https://cartert.dev")
+	color.Cyan("Version 1.1")
+	color.White("                   ")
+	color.Yellow("[00] Exit")
+	color.White("                   ")
+	var ch int
+	color.Green("[-] Select an option : ")
+	fmt.Scanf("%d", &ch)
+	if ch == 00 {
+		exit()
+	} else {
+		foo()
+	}
+}
 
 func exit() {
 	defer fmt.Println("!")
