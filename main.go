@@ -41,14 +41,14 @@ func main() {
 		if ch == 1 {
 			cmnd := exec.Command("whois.go", "arg")
 			cmnd.Start()
-			log.Println("log")
+			whois()
 		} else if ch == 2 {
 			cmnd := exec.Command("whois.go", "arg")
 			cmnd.Start()
 			log.Println("log")
 		}
 	} else {
-		color.Red("Error : ")
+		color.Red("Error : Missing --url")
 		color.Green("Usage : ")
 	}
 }

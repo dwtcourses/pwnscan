@@ -2,7 +2,7 @@
 // A modular framework designed to automate security tests.
 // Licensed under the GPL
 
-package main
+package lib
 
 import (
 	"fmt"
