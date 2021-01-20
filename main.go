@@ -5,9 +5,11 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"os"
 	"os/exec"
+	"sync"
 
 	"github.com/fatih/color"
 	"github.com/likexian/whois-go"
@@ -80,9 +82,6 @@ func main() {
 		foo()
 		if err := foo(); err != nil {
 		}
-
-		//color.Red("Error : Missing --url")
-		//color.Green("Usage : ")
 	}
 
 }
@@ -99,18 +98,36 @@ func main() {
 //}
 
 func simplenmap(name string) {
-	url := "https://api.hackertarget.com/nmap/?q=" + name
-	resp, err := http.Get(url)
-	if err != nil {
-		foo()
+	var wg sync.WaitGroup
+	for i := 1; i <= 1024; i++ {
+		wg.Add(1)
+		go func(j int) {
+			defer wg.Done()
+			address := fmt.Sprintf(name, j)
+			conn, err := net.Dial("tcp", address)
+			if err != nil {
+				//port is closed/filtered
+				return
+			}
+			conn.Close()
+			fmt.Printf("%d open\n", j)
+		}(i)
 	}
-	defer resp.Body.Close()
-	html, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("%s\n", html)
+	wg.Wait()
 }
+
+//	url := "https://api.hackertarget.com/nmap/?q=" + name
+//	resp, err := http.Get(url)
+//	if err != nil {
+//		foo()
+//	}
+//	defer resp.Body.Close()
+//	html, err := ioutil.ReadAll(resp.Body)
+//	if err != nil {
+//		panic(err)
+//	}
+//	fmt.Printf("%s\n", html)
+//}
 
 func advancednmap(name string) {
 	url := "https://api.hackertarget.com/nmap/?q=" + name
