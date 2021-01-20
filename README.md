@@ -13,12 +13,14 @@
 
 ## Requirements: 
 
-<p>`go get github.com/fatih/color`<br>
-`go get github.com/likexian/whois-go`</p>
+`go get github.com/fatih/color`
+
+`go get github.com/likexian/whois-go`
 
 ## Usage: 
 
 `go run main.go --url google.com`
+
 `go run main.go -url google.com`
 
 ## License
