@@ -101,9 +101,9 @@ func simplenmap(name string) {
 	var wg sync.WaitGroup
 	for i := 1; i <= 1024; i++ {
 		wg.Add(1)
-		go func(j int) {
+		go func(j int, name string) {
 			defer wg.Done()
-			address := fmt.Sprintf(name, j)
+			address := fmt.Sprintf("%v:%d", name, j)
 			conn, err := net.Dial("tcp", address)
 			if err != nil {
 				//port is closed/filtered
@@ -111,7 +111,7 @@ func simplenmap(name string) {
 			}
 			conn.Close()
 			fmt.Printf("%d open\n", j)
-		}(i)
+		}(i, name)
 	}
 	wg.Wait()
 }
