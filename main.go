@@ -138,20 +138,27 @@ func about() {
 						
 			    version 1.1
 	`
-	color.Cyan("%s", banner)
-	color.Red("		  made with <3 by @nolimitcarter")
+	color.Red("%s", banner)
+	//color.Red("		  made with <3 by @nolimitcarter")
+	fmt.Println(string(colorBlue), "          made with", string(colorRed), "<3", string(colorBlue), "by @nolimitcarter")
 	color.White("                   ")
-	color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
+	fmt.Println(string(colorRed), "[-]", string(colorGreen), "Tool Created by @nolimitcarter")
+	//color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
 	color.White("                   ")
-	color.Cyan("Author  :  @nolimitcarter")
-	color.Cyan("Github  :  https://github.com/nolimitcarter")
-	color.Cyan("Find me :  https://cartert.dev")
+	fmt.Println(string(colorCyan), "Author  :  @nolimitcarter")
+	fmt.Println(string(colorCyan), "Github  :  https://github.com/nolimitcarter")
+	fmt.Println(string(colorCyan), "Find me :  https://cartert.dev
+	//color.Cyan("Author  :  @nolimitcarter")
+	//color.Cyan("Github  :  https://github.com/nolimitcarter")
+	//color.Cyan("Find me :  https://cartert.dev")
 	color.Cyan("Version 1.1")
 	color.White("                   ")
-	color.Yellow("[00] Exit")
+	fmt.Println(string(colorRed), "[00]", string(colorYellow), "Exit")
+	//color.Yellow("[00] Exit")
 	color.White("                   ")
 	var ch int
-	color.Green("[-] Select an option : ")
+	fmt.Println(string(colorRed), "[-]", string(colorGreen), "Select an option : ")
+	//color.Green("[-] Select an option : ")
 	fmt.Scanf("%d", &ch)
 	if ch == 00 {
 		exit()
@@ -173,12 +180,15 @@ func exit() {
 						
 			    version 1.1
 	`
-	color.Cyan("%s", banner)
-	color.Red("	          made with <3 by @nolimitcarter")
+	color.Red("%s", banner)
+	fmt.Println(string(colorBlue), "          made with", string(colorRed), "<3", string(colorBlue), "by @nolimitcarter")
+	//color.Red("	          made with <3 by @nolimitcarter")
 	color.White("                 ")
-	color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
+	//color.Green("[-] Tool Created by @nolimitcarter [github.com/nolimitcarter]")
+	fmt.Println(string(colorRed), "[-]", string(colorGreen), "Tool Created by @nolimitcarter")
 	color.White("                   ")
-	color.Red("Exiting... Thanks for using this tool!")
+	fmt.Println(string(colorRed), "Exiting... Thanks for using this tool!")
+	//color.Red("Exiting... Thanks for using this tool!")
 	color.White("                   ")
 
 	defer fmt.Println("!")
