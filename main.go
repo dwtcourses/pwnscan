@@ -1,3 +1,5 @@
+
+
 package main
 
 import (
@@ -16,6 +18,13 @@ import (
 )
 
 func main() {
+	colorRed := "\033[31m"
+	colorGreen := "\033[32m"
+	colorYellow := "\033[33m"
+	colorBlue := "\033[34m"
+	//colorPurple := "\033[35m"
+	colorCyan := "\033[36m"
+	//colorWhite := "\033[37m"
 	// clears the terminal
 	c := exec.Command("clear")
 	c.Stdout = os.Stdout
@@ -30,42 +39,36 @@ func main() {
 						
 			    version 1.1
 	`
-	color.Cyan("%s", banner)
-	color.Red("	          made with <3 by @nolimitcarter")
+	color.Red("%s", banner)
+	fmt.Println(string(colorBlue), "          made with", string(colorRed), "<3", string(colorBlue), "by @nolimitcarter")
 	color.White("                   ")
 	url := flag.String("url", "u", "-url")
 	flag.Parse()
 	if *url != "u" {
-		color.Green("[-] Entered URL: ")
-		c := color.New(color.FgCyan).Add(color.Underline)
-		c.Printf(*url)
+		fmt.Println(string(colorRed), "[-]", string(colorGreen), "Entered URL:")
+		fmt.Println(string(colorCyan), *url)
 		color.White("                   ")
 		color.White("                   ")
-
-		color.Green("[::] PWNScan Options [::] ")
+		fmt.Println(string(colorRed), "[:]", string(colorYellow), "PWNScan Options", string(colorRed), "[:]")
 		color.White("                   ")
-		color.Yellow("[01] Simple Nmap Scan")
-		color.Yellow("[02] Advanced Nmap Scan")
-		color.Yellow("[03] Who-is Lookup")
-		color.Yellow("[04] DNS Lookup")
-		color.Yellow("[05] Reverse DNS Lookup")
-		color.Yellow("[06] ETC")
-		color.Yellow("[07] ETC")
-		color.Yellow("[08] ETC")
-		color.Yellow("[09] ETC")
-		color.Yellow("[10] ETC")
-		color.White("                   ")
-		color.Yellow("[00] About")
-		//color.White("                   ")
-		color.Yellow("[99] Exit")
+		fmt.Println(string(colorRed), "[01]", string(colorYellow), "Simple Nmap Scan")
+		fmt.Println(string(colorRed), "[02]", string(colorYellow), "Advanced Nmap Scan")
+		fmt.Println(string(colorRed), "[03]", string(colorYellow), "Who-is Lookup")
+		fmt.Println(string(colorRed), "[04]", string(colorYellow), "DNS Lookup")
+		fmt.Println(string(colorRed), "[05]", string(colorYellow), "Reverse DNS Lookup")
+		fmt.Println(string(colorRed), "[06]", string(colorYellow), "ETC")
+		fmt.Println(string(colorRed), "[07]", string(colorYellow), "ETC")
+		fmt.Println(string(colorRed), "[08]", string(colorYellow), "ETC")
+		fmt.Println(string(colorRed), "[09]", string(colorYellow), "ETC")
+		fmt.Println(string(colorRed), "[10]", string(colorYellow), "ETC")
+		fmt.Println(string(colorRed), "[00]", string(colorYellow), "About")
+		fmt.Println(string(colorRed), "[00]", string(colorYellow), "About")
 		color.White("                   ")
 
 		var ch int
-		color.Green("[-] Select an option : ")
+		fmt.Println(string(colorRed), "[-]", string(colorGreen), "Select an option:")
 		fmt.Scanf("%d", &ch)
 		if ch == 1 {
-			//cmnd := exec.Command("whois.go", "arg")
-			//cmnd.Start()
 			simplenmap(*url)
 		} else if ch == 2 {
 			advancednmap(*url)
@@ -77,25 +80,13 @@ func main() {
 			exit()
 		}
 	} else {
-		color.Red("Error : Missing Parameter '--url'")
-		color.Green("Usage : go run main.go --url 'google.com'")
+		fmt.Println(string(colorRed), "Error : missing parameter '-url, --url'")
+		fmt.Println(string(colorGreen), "Usage : go run main.go -url 'google.com'")
 		foo()
 		if err := foo(); err != nil {
 		}
 	}
-
 }
-
-//func simplenmap() {
-//	var wg sync.WaitGroup
-//	for i := 1; i <= 1024; i++ {
-//		wg.Add(1)
-//		go func(j int) {
-//			defer wg.Done()
-//			address :=
-//		}
-//	}
-//}
 
 func simplenmap(name string) {
 	var wg sync.WaitGroup
@@ -115,19 +106,6 @@ func simplenmap(name string) {
 	}
 	wg.Wait()
 }
-
-//	url := "https://api.hackertarget.com/nmap/?q=" + name
-//	resp, err := http.Get(url)
-//	if err != nil {
-//		foo()
-//	}
-//	defer resp.Body.Close()
-//	html, err := ioutil.ReadAll(resp.Body)
-//	if err != nil {
-//		panic(err)
-//	}
-//	fmt.Printf("%s\n", html)
-//}
 
 func advancednmap(name string) {
 	url := "https://api.hackertarget.com/nmap/?q=" + name
