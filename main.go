@@ -1,5 +1,3 @@
-
-
 package main
 
 import (
@@ -45,9 +43,7 @@ func main() {
 	url := flag.String("url", "u", "-url")
 	flag.Parse()
 	if *url != "u" {
-		fmt.Println(string(colorRed), "[-]", string(colorGreen), "Entered URL:")
-		fmt.Println(string(colorCyan), *url)
-		color.White("                   ")
+		fmt.Println(string(colorRed), "[-]", string(colorGreen), "Entered URL:", string(colorCyan), *url)
 		color.White("                   ")
 		fmt.Println(string(colorRed), "[:]", string(colorYellow), "PWNScan Options", string(colorRed), "[:]")
 		color.White("                   ")
@@ -60,9 +56,9 @@ func main() {
 		fmt.Println(string(colorRed), "[07]", string(colorYellow), "ETC")
 		fmt.Println(string(colorRed), "[08]", string(colorYellow), "ETC")
 		fmt.Println(string(colorRed), "[09]", string(colorYellow), "ETC")
-		fmt.Println(string(colorRed), "[10]", string(colorYellow), "ETC")
-		fmt.Println(string(colorRed), "[00]", string(colorYellow), "About")
-		fmt.Println(string(colorRed), "[00]", string(colorYellow), "About")
+		fmt.Println(string(colorRed), "[10]", string(colorYellow), "Simple Web Server")
+		color.White("                   ")
+		fmt.Println(string(colorRed), "[00]", string(colorYellow), "About", string(colorRed), "[99]", string(colorYellow), "Exit")
 		color.White("                   ")
 
 		var ch int
