@@ -10,6 +10,7 @@
 * Who-is Lookup
 * DNS Lookup
 * Reverse DNS Lookup
+* Start a Web Server
 
 ## Requirements: 
 
