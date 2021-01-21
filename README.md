@@ -1,4 +1,4 @@
-## <p align="center">pwnscan
+## <p align="center">pwnscan *WIP*
 </p>
 
 <p align="center">A modular framework designed to automate security tests.</p>
@@ -12,6 +12,7 @@
 * Reverse DNS Lookup
 * Start a Web Server
 * WPA/WPA2 handshake
+* Web crawler (subdomain enumeration)
 
 ## Requirements: 
 
