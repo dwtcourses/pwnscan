@@ -11,6 +11,7 @@
 * DNS Lookup
 * Reverse DNS Lookup
 * Start a Web Server
+* WPA/WPA2 handshake
 
 ## Requirements: 
 
