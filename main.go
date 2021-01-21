@@ -126,6 +126,13 @@ func whoislookup(name string) {
 }
 
 func about() {
+	colorRed := "\033[31m"
+	colorGreen := "\033[32m"
+	colorYellow := "\033[33m"
+	colorBlue := "\033[34m"
+	//colorPurple := "\033[35m"
+	colorCyan := "\033[36m"
+	//colorWhite := "\033[37m"
 	c := exec.Command("clear")
 	c.Stdout = os.Stdout
 	c.Run()
@@ -147,11 +154,12 @@ func about() {
 	color.White("                   ")
 	fmt.Println(string(colorCyan), "Author  :  @nolimitcarter")
 	fmt.Println(string(colorCyan), "Github  :  https://github.com/nolimitcarter")
-	fmt.Println(string(colorCyan), "Find me :  https://cartert.dev
+	fmt.Println(string(colorCyan), "Find me :  https://cartert.dev")
 	//color.Cyan("Author  :  @nolimitcarter")
 	//color.Cyan("Github  :  https://github.com/nolimitcarter")
 	//color.Cyan("Find me :  https://cartert.dev")
-	color.Cyan("Version 1.1")
+	fmt.Println(string(colorCyan), "Version :  1.1")
+	//color.Cyan("Version 1.1")
 	color.White("                   ")
 	fmt.Println(string(colorRed), "[00]", string(colorYellow), "Exit")
 	//color.Yellow("[00] Exit")
@@ -168,6 +176,13 @@ func about() {
 }
 
 func exit() {
+	colorRed := "\033[31m"
+	colorGreen := "\033[32m"
+	//colorYellow := "\033[33m"
+	colorBlue := "\033[34m"
+	//colorPurple := "\033[35m"
+	//colorCyan := "\033[36m"
+	//colorWhite := "\033[37m"
 	c := exec.Command("clear")
 	c.Stdout = os.Stdout
 	c.Run()
