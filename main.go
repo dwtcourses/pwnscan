@@ -70,6 +70,8 @@ func main() {
 			advancednmap(*url)
 		} else if ch == 3 {
 			whoislookup(*url)
+		} else if ch == 10 {
+			rungoserver()
 		} else if ch == 00 {
 			about()
 		} else if ch == 99 {
@@ -123,6 +125,10 @@ func whoislookup(name string) {
 		fmt.Println(err)
 	}
 	fmt.Println(result)
+}
+
+func rungoserver() {
+	goserver()
 }
 
 func about() {
