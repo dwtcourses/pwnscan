@@ -13,6 +13,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/likexian/whois-go"
+	"github.com/pwnscan/server"
 )
 
 func main() {
@@ -41,6 +42,7 @@ func main() {
 	fmt.Println(string(colorBlue), "          made with", string(colorRed), "<3", string(colorBlue), "by @nolimitcarter")
 	color.White("                   ")
 	url := flag.String("url", "u", "-url")
+	server := flag.String("server", "u", "-server")
 	flag.Parse()
 	if *url != "u" {
 		fmt.Println(string(colorRed), "[-]", string(colorGreen), "Entered URL:", string(colorCyan), *url)
@@ -70,6 +72,9 @@ func main() {
 			advancednmap(*url)
 		} else if ch == 3 {
 			whoislookup(*url)
+		} else if ch == 10 {
+			rungoserver()
+			//server.Goserver()
 		} else if ch == 00 {
 			about()
 		} else if ch == 99 {
@@ -78,10 +83,16 @@ func main() {
 	} else {
 		fmt.Println(string(colorRed), "Error : missing parameter '-url, --url'")
 		fmt.Println(string(colorGreen), "Usage : go run main.go -url 'google.com'")
+		fmt.Println(string(colorBlue), "(Ignore if running server)")
 		foo()
 		if err := foo(); err != nil {
 		}
 	}
+	//still a WIP
+	if *server != "s" {
+		rungoserver()
+	}
+
 }
 
 func simplenmap(name string) {
@@ -123,6 +134,10 @@ func whoislookup(name string) {
 		fmt.Println(err)
 	}
 	fmt.Println(result)
+}
+
+func rungoserver() {
+	server.Goserver()
 }
 
 func about() {
