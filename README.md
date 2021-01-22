@@ -28,6 +28,8 @@
 
 `go run main.go -url google.com`
 
+Use an arg to start a web server: `go run main.go -server start`
+
 ## License
 
 Licensed under the GPL - see the [LICENSE](LICENSE.md) for details.
