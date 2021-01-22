@@ -1,4 +1,4 @@
-package goserver
+package server
 
 import (
 	"fmt"
@@ -6,11 +6,11 @@ import (
 	"net/http"
 )
 
-func goserver() {
+func Goserver() {
 	fileServer := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fileServer)
-	http.HandleFunc("/serv", serve)
-	http.HandleFunc("/form", formHandler)
+	http.HandleFunc("/serv", Serve)
+	http.HandleFunc("/form", FormHandler)
 	fmt.Printf("Hello")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
@@ -18,11 +18,11 @@ func goserver() {
 }
 
 // Sending request
-func serve(w http.ResponseWriter, r *http.Request) {
+func Serve(w http.ResponseWriter, r *http.Request) {
 	log.Printf("whatever")
 }
 
-func formHandler(w http.ResponseWriter, r *http.Request) {
+func FormHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		fmt.Fprintf(w, "error: %v", err)
 		return
