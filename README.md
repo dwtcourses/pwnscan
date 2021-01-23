@@ -22,6 +22,8 @@
 
 `go get github.com/likexian/whois-go`
 
+(or just run `install.sh`) 
+
 ## Usage: 
 
 `go run main.go --url google.com`

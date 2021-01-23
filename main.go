@@ -140,6 +140,10 @@ func rungoserver() {
 	server.Goserver()
 }
 
+func reversedns() {
+
+}
+
 func about() {
 	colorRed := "\033[31m"
 	colorGreen := "\033[32m"
